@@ -165,3 +165,8 @@ LOGGING ={
         },
     }
 }
+
+# 静的ファイルのパスの指定
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,'static'),
+)
