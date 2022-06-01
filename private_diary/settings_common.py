@@ -15,6 +15,7 @@ import os
 from telnetlib import AUTHENTICATION
 from django.contrib.messages import constants as messages
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -218,3 +219,7 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX=''
 
 # デフォルトのメール送信元を設定
 DEFAULT_FROM_EMAIL = os.environ.get('FROM_EMAIL')
+
+MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = 'diary:diary_list'

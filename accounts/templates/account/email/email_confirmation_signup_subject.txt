@@ -1,1 +1,1 @@
-{% include "account/email/email_confirmation_subject.txt" %}
+ユーザ登録確認メール

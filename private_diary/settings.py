@@ -39,6 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'diary.apps.DiaryConfig'
+    'django.contrib.sites',
+    'accounts.apps.AccountsConfig',
+    'allauth',
+    'allauth.account',
+    'django_bootstrap5',
+
 ]
 
 MIDDLEWARE = [

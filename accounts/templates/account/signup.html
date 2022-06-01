@@ -1,6 +1,6 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 
-{% load bootstarp5 %}
+{% load django_bootstrap5 %}
 
 {% block title %}Signup{% endblock %}
 {% block active_signup %}active{% endblock %}
@@ -9,7 +9,7 @@
   <div class="rows">
     <div class="my-div-style">
       <h1> サインアップ</h1>
-      <form method="post" action="{% url 'account:signupp' %}">
+      <form method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
 
         <div class="mb-4 col-4">
