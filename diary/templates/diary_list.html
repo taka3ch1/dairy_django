@@ -16,13 +16,13 @@
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
             <div class="d-flex justify-content-end mb-4">
-                <a class="btn btn-primary float-right" href="#">
+                <a class="btn btn-primary float-right" href="{% url 'diary:diary_create' %}">
                     新規作成
                 </a>
             </div>
             {% for diary in diary_list %}
             <div class="post-preview">
-                <a href="#">
+                <a href="{% url 'diary:diary_detail.html' dialy.pk" %>
                     <h2 class="post-title">
                         {{ diary.title }}
                     </h2>
@@ -36,6 +36,28 @@
             {% empty %}
             <p>日記がありません</p>
             {% endfor %}
+            <!--ページネーション処理-->
+            {% if is_paginated %}
+            <ul class="pagenation">
+                <!--前ページへのリンク-->
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page= {{ page_obj.previous_page_number }}"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+                {% endif %}
+                <!--ページ数表示-->
+                {% for page_num is page_obj.pagenator.page_range %}
+                {% if page_obj.number == page_num %}
+                <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
+                {% endif %}
+                {% endfor %}
+                <!--次ページへのリンク-->
+                <li class="page-item">
+                    <a class="page-link" href="?page= {{ page_obj.next_page_number }}"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
         </div>
     </div>
 </div>
