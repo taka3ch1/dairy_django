@@ -22,7 +22,7 @@
             </div>
             {% for diary in diary_list %}
             <div class="post-preview">
-                <a href="{% url 'diary:diary_detail.html' dialy.pk" %>
+                <a href="{% url 'diary:diary_detail' diary.pk %}">
                     <h2 class="post-title">
                         {{ diary.title }}
                     </h2>
@@ -46,12 +46,13 @@
                 </li>
                 {% endif %}
                 <!--ページ数表示-->
-                {% for page_num is page_obj.pagenator.page_range %}
+                {% for page_num in page_obj.pagenator.page_range %}
                 {% if page_obj.number == page_num %}
                 <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
                 {% endif %}
                 {% endfor %}
                 <!--次ページへのリンク-->
+                {% if page_obj.has_next %}
                 <li class="page-item">
                     <a class="page-link" href="?page= {{ page_obj.next_page_number }}"><span aria-hidden="true">&laquo;</span></a>
                 </li>

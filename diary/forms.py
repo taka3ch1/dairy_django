@@ -3,7 +3,7 @@ from django import forms
 from django.core.mail import EmailMessage
 import os
 
-from opt.private_diary.private_diary import diary
+# from . import diary
 from .models import Diary
 
 class InquiryForm(forms.Form):
